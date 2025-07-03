@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP Camera Viewer & Monitor | Simple, Fast, Private Camera Streaming | iOS</title>
+  <meta name="description" content="IP Camera Viewer & Monitor - The simple, fast, and private way to view all your IP cameras. No cloud, no logins, no third-party tracking. Available on iOS.">
+  <meta name="keywords" content="IP camera viewer, camera monitor app, ONVIF camera app, home security app, baby monitor app, pet camera app, iOS camera viewer">
+  <meta name="author" content="Mobile Card Games & Travel Apps LLC">
+  <meta name="robots" content="index, follow">
+  <meta name="apple-itunes-app" content="app-id=6744895950">
+  <link rel="canonical" href="https://mobilegames.cloud/ipcamera/index.html">
+  <link rel="icon" href="images/app-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mobilegames.cloud/ipcamera/index.html">
+  <meta property="og:image" content="https://mobilegames.cloud/ipcamera/images/app-icon.png">
+  <meta property="og:title" content="IP Camera Viewer & Monitor | Simple, Fast, Private">
+  <meta property="og:description" content="Finally — a simple, fast, and private way to view all your IP cameras. No cloud, no logins, no third-party tracking.">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mobilegames.cloud/ipcamera/index.html">
+  <meta property="twitter:image" content="https://mobilegames.cloud/ipcamera/images/app-icon.png">
+  <meta property="twitter:title" content="IP Camera Viewer & Monitor | Simple, Fast, Private">
+  <meta property="twitter:description" content="Finally — a simple, fast, and private way to view all your IP cameras. No cloud, no logins, no third-party tracking.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "IP Camera Viewer & Monitor",
+    "operatingSystem": "iOS",
+    "applicationCategory": "UtilitiesApplication, SecurityApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "50"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "screenshot": [
+      "https://mobilegames.cloud/ipcamera/images/screenshot1.png",
+      "https://mobilegames.cloud/ipcamera/images/screenshot2.png",
+      "https://mobilegames.cloud/ipcamera/images/screenshot3.png"
+    ],
+    "url": "https://apps.apple.com/app/apple-store/id6744895950",
+    "description": "Finally — a simple, fast, and private way to view all your IP cameras. No cloud, no logins, no third-party tracking.",
+    "applicationSubCategory": "Security",
+    "datePublished": "2024-12-01"
+  }
+  </script>
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --text-dark: #1f2937;
+      --text-medium: #4b5563;
+      --text-light: #6b7280;
+      --surface: #ffffff;
+      --surface-gray: #f8fafc;
+      --border: #e5e7eb;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --radius: 8px;
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--surface);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    /* Header */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4rem;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--text-dark);
+    }
+    
+    .logo-icon {
+      width: 2rem;
+      height: 2rem;
+      background: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-light);
+    }
+    
+    .btn-secondary {
+      background: var(--surface-gray);
+      color: var(--text-dark);
+      border: 1px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--surface);
+      border-color: var(--primary);
+    }
+    
+    /* QR Code functionality */
+    .qr-container {
+      position: relative;
+    }
+    
+    .qr-popup {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s;
+      z-index: 110;
+      width: 200px;
+      text-align: center;
+    }
+    
+    @media (hover: hover) {
+      .qr-container:hover .qr-popup {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    
+    .qr-popup img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .qr-popup p {
+      font-size: 0.875rem;
+      color: var(--text-medium);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    
+    .hero-tagline {
+      font-size: 1.25rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .hero .btn {
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+    }
+    
+    .btn-white {
+      background: white;
+      color: var(--text-dark);
+    }
+    
+    .btn-white:hover {
+      background: var(--surface-gray);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 5rem 0;
+      background: var(--surface-gray);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .feature {
+      background: var(--surface);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    
+    .feature-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.25rem;
+    }
+    
+    .feature h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .feature p {
+      color: var(--text-medium);
+    }
+    
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--text-medium);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Privacy Section */
+    .privacy {
+      padding: 5rem 0;
+      background: var(--surface);
+    }
+    
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .privacy-item {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    
+    .privacy-icon {
+      width: 4rem;
+      height: 4rem;
+      background: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .privacy-item h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .privacy-item p {
+      color: var(--text-medium);
+      font-size: 0.875rem;
+    }
+    
+    /* SMS Section */
+    .sms-section {
+      background: var(--surface-gray);
+      padding: 3rem;
+      border-radius: var(--radius);
+      margin: 3rem 0;
+      text-align: center;
+    }
+    
+    .sms-section h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .sms-form {
+      max-width: 400px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .sms-form input[type="tel"] {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 1rem;
+    }
+    
+    .sms-form input[type="submit"] {
+      padding: 0.75rem 1rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    
+    .consent-text {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-section ul li a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    
+    .footer-section ul li a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.875rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-cta {
+        gap: 0.5rem;
+      }
+      
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8125rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-tagline {
+        font-size: 1.125rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .sms-form {
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .hero {
+        padding: 3rem 0;
+      }
+      
+      .features, .privacy {
+        padding: 3rem 0;
+      }
+      
+      .sms-section {
+        padding: 2rem 1rem;
+        margin: 2rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          IP Camera Viewer
+        </div>
+        <div class="nav-cta">
+          <button onclick="scrollToSMS()" class="btn btn-secondary">Text Link</button>
+          <div class="qr-container">
+            <a href="https://apps.apple.com/app/apple-store/id6744895950?pt=649248&ct=mobilecloudlandingpage&mt=8" class="btn btn-primary">
+              <i class="fab fa-apple"></i> Get App
+            </a>
+            <div class="qr-popup">
+              <img src="images/qrcode.png" alt="App Store QR Code">
+              <p>Scan to download</p>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Simple, Fast, Private Camera Viewing</h1>
+        <p class="hero-tagline">Finally — a simple, fast, and private way to view all your IP cameras. No cloud, no logins, no third-party tracking.</p>
+        <div class="hero-cta">
+          <div class="qr-container">
+            <a href="https://apps.apple.com/app/apple-store/id6744895950?pt=649248&ct=mobilecloudlandingpage&mt=8" class="btn btn-white">
+              <i class="fab fa-apple"></i> Download Free
+            </a>
+            <div class="qr-popup">
+              <img src="images/qrcode.png" alt="App Store QR Code">
+              <p>Scan to download</p>
+            </div>
+          </div>
+          <button onclick="scrollToSMS()" class="btn btn-outline">Get Link via SMS</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything You Need</h2>
+        <p>Powerful features designed for simplicity and privacy</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>Auto Discovery</h3>
+          <p>Automatically finds ONVIF-compatible IP cameras on your local network. No technical setup required.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-th-large"></i>
+          </div>
+          <h3>Multi-Camera View</h3>
+          <p>Stream multiple camera views simultaneously. Group cameras by room or purpose for easy organization.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-arrows-alt"></i>
+          </div>
+          <h3>PTZ Control</h3>
+          <p>Control pan, tilt, and zoom on supported camera models directly from the app interface.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Capture & Share</h3>
+          <p>Take snapshots of your camera feeds and share them instantly when needed.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-volume-up"></i>
+          </div>
+          <h3>Audio Control</h3>
+          <p>Adjust audio volume per camera for optimal monitoring experience.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-fingerprint"></i>
+          </div>
+          <h3>Secure Access</h3>
+          <p>Protect your camera access with Face ID or Touch ID for added security.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Section -->
+  <section class="privacy">
+    <div class="container">
+      <div class="section-header">
+        <h2>Privacy First</h2>
+        <p>Your security footage stays private and secure</p>
+      </div>
+      <div class="privacy-grid">
+        <div class="privacy-item">
+          <div class="privacy-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>No Cloud Required</h3>
+          <p>Everything works on your local network</p>
+        </div>
+        <div class="privacy-item">
+          <div class="privacy-icon">
+            <i class="fas fa-user-slash"></i>
+          </div>
+          <h3>No Accounts</h3>
+          <p>No sign-ups or personal information needed</p>
+        </div>
+        <div class="privacy-item">
+          <div class="privacy-icon">
+            <i class="fas fa-eye-slash"></i>
+          </div>
+          <h3>No Tracking</h3>
+          <p>Zero third-party analytics or data collection</p>
+        </div>
+        <div class="privacy-item">
+          <div class="privacy-icon">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <h3>Works Offline</h3>
+          <p>No internet connection required for local viewing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMS Section -->
+  <div class="container">
+    <section class="sms-section" id="sms">
+      <h3>Get the App Link via SMS</h3>
+      <p>Enter your mobile number and we'll send you a direct download link</p>
+      <form id="smsForm" class="sms-form">
+        <input type="tel" name="phone" placeholder="Enter your mobile number" required>
+        <input type="submit" value="Send App Link">
+        <p class="consent-text">
+          By clicking "Send App Link", you consent to receive a one-time SMS message. Message & data rates may apply. Reply HELP for help, STOP to cancel.
+        </p>
+      </form>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>App</h4>
+          <ul>
+            <li><a href="https://apps.apple.com/app/apple-store/id6744895950">Download</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li>Email: <code>v5cqpsj4e3u4 @ opayq dot com</code></li>
+            <li><a href="https://support.apple.com/en-us/118428">Cancel Subscription</a></li>
+            <li><a href="https://support.apple.com/en-us/118223">Request Refund</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="https://www.privacypolicies.com/generic/">Privacy Policy</a></li>
+            <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mobile Card Games & Travel Apps LLC. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Function to scroll to SMS section
+    function scrollToSMS() {
+      const smsSection = document.getElementById('sms');
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const smsPosition = smsSection.getBoundingClientRect().top + window.pageYOffset;
+      
+      window.scrollTo({
+        top: smsPosition - headerHeight - 20,
+        behavior: 'smooth'
+      });
+    }
+    
+    // SMS Form Submission
+    document.getElementById('smsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var phone = this.phone.value;
+      fetch('https://sms-send-1082524592245.us-central1.run.app', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phone: phone,
+          appName: 'IP Camera Viewer & Monitor',
+          appLink: 'https://apps.apple.com/app/apple-store/id6744895950?pt=649248&ct=smsLink&mt=8'
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('App link sent! Check your phone in a moment.');
+          this.reset();
+        } else {
+          alert('Error sending SMS: ' + data.error);
+        }
+      })
+      .catch(err => console.error(err));
+    });
+  </script>
+  
+  <!-- Privacy-first analytics -->
+  <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>
